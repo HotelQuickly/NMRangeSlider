@@ -94,6 +94,8 @@ NSUInteger DeviceSystemMajorVersion() {
     _lowerTouchEdgeInsets = UIEdgeInsetsMake(-5, -5, -5, -5);
     _upperTouchEdgeInsets = UIEdgeInsetsMake(-5, -5, -5, -5);
 
+    _trackInset = 0.0f;
+
     [self addSubviews];
 
     [self.lowerHandle addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
@@ -459,8 +461,8 @@ NSUInteger DeviceSystemMajorVersion() {
 
     UIEdgeInsets alignmentInsets = [self trackAlignmentInsets];
     retValue = UIEdgeInsetsInsetRect(retValue,alignmentInsets);
-    
-    return retValue;
+
+    return CGRectInset(retValue, self.trackInset, 0.0f);
 }
 
 - (UIImage*) trackImageForCurrentValues
@@ -498,8 +500,8 @@ NSUInteger DeviceSystemMajorVersion() {
     
     UIEdgeInsets alignmentInsets = [self trackAlignmentInsets];
     trackBackgroundRect = UIEdgeInsetsInsetRect(trackBackgroundRect,alignmentInsets);
-    
-    return trackBackgroundRect;
+
+    return CGRectInset(trackBackgroundRect, self.trackInset, 0.0f);
 }
 
 //returms the rect of the tumb image for a given track rect and value

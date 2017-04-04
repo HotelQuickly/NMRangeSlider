@@ -78,6 +78,8 @@
 
 @property(retain, nonatomic) UIImage* trackBackgroundImage;
 
+@property(assign, nonatomic) float trackInset;
+
 @property (retain, nonatomic) UIImageView* lowerHandle;
 @property (retain, nonatomic) UIImageView* upperHandle;
 
